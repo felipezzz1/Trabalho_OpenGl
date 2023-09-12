@@ -151,7 +151,7 @@ void display() {
 			glTexCoord2f(0.0f, 1.0f); glVertex3f(-200.0f, 0.0f, 200.0f);
 		glEnd();
 	glDisable(GL_TEXTURE_2D);
-	glPopMatrix(); //
+	glPopMatrix();
 
 	glPushMatrix(); //sol
 		glColor3d(1, 1, 0.2);
@@ -256,8 +256,8 @@ void display() {
 
 		// cabeca
 		glTranslatef(pXMove, pYMove, pZMove);
-		glRotatef(pXRotate, 1.0f, 0.0f, 0.0f); // Rotate around X-axis
-		glRotatef(pYRotate, 0.0f, 1.0f, 0.0f); // Rotate around Y-axis
+		glRotatef(pXRotate, 1.0f, 0.0f, 0.0f); // rotaçao eixo x
+		glRotatef(pYRotate, 0.0f, 1.0f, 0.0f); // rotaçao eixo y
 		glColor3d(0, 0, 1);
 		glutSolidSphere(2, 100, 100);
 
@@ -268,7 +268,6 @@ void display() {
 			glColor3d(0, 0, 1);
 			glutSolidCylinder(2, 5, 40, 40);
 		glPopMatrix();
-
 
 		// parte inferior
 		glPushMatrix();
@@ -395,27 +394,29 @@ void init() {
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 	glEnable(GL_DEPTH_TEST);
-	// glShadeModel(GL_FLAT);
 
     SDL_Surface* image = IMG_Load("piso.jpeg");
 
-	// Enable texture mapping
+	// ativa textura
     glEnable(GL_TEXTURE_2D);
-    // Generate a texture ID
+
+    // gerando id textura
     glGenTextures(1, &id);
-    // Load and bind the grass texture
+
+    // carrega e aplica a textura das pedrinha
     glBindTexture(GL_TEXTURE_2D, id);
 
     glGenTextures(1, &id);
 
 	glBindTexture(GL_TEXTURE_2D, id);
-	//Filtro
+
+	// filtro
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-	//Descobrimos o formato a partir da imagem
+	// descobre formato da imagem
 	GLint format = image->format->BytesPerPixel == 3 ? GL_RGB : GL_RGBA;
 
-	//Carregamos a imagem do disco
+	// carrega imagem disco
 	glTexImage2D(GL_TEXTURE_2D, 0, format, image->w, image->h, 0, format, GL_UNSIGNED_BYTE, image->pixels);
 
 	SDL_FreeSurface(image);
