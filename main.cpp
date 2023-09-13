@@ -144,19 +144,19 @@ void display() {
 	glEnable(GL_TEXTURE_2D);
     //text chao
     glBindTexture(GL_TEXTURE_2D, id);
-        glBegin(GL_QUADS);
-			glTexCoord2f(0.0f, 0.0f); glVertex3f(-200.0f, 0.0f, -200.0f);
-			glTexCoord2f(1.0f, 0.0f); glVertex3f(200.0f, 0.0f, -200.0f);
-			glTexCoord2f(1.0f, 1.0f); glVertex3f(200.0f, 0.0f, 200.0f);
-			glTexCoord2f(0.0f, 1.0f); glVertex3f(-200.0f, 0.0f, 200.0f);
-		glEnd();
+	glBegin(GL_QUADS);
+	glTexCoord2f(0.0f, 0.0f); glVertex3f(-200.0f, 0.0f, -200.0f);
+	glTexCoord2f(1.0f, 0.0f); glVertex3f(200.0f, 0.0f, -200.0f);
+	glTexCoord2f(1.0f, 1.0f); glVertex3f(200.0f, 0.0f, 200.0f);
+	glTexCoord2f(0.0f, 1.0f); glVertex3f(-200.0f, 0.0f, 200.0f);
+	glEnd();
 	glDisable(GL_TEXTURE_2D);
 	glPopMatrix();
 
 	glPushMatrix(); //sol
-		glColor3d(1, 1, 0.2);
-		glTranslatef(-40, 50, -100);
-		glutSolidSphere(10, 100, 100);
+	glColor3d(1, 1, 0.2);
+	glTranslatef(150, 100, -100);
+	glutSolidSphere(10, 100, 100);
 	glPopMatrix();
 
 	//carro
@@ -434,7 +434,7 @@ int main(int argc, char **argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowPosition(5, 5);
 	glutInitWindowSize(450, 450);
-	glutCreateWindow("Trabalho Carro OpenGl CGPDI");
+	glutCreateWindow("Trabalho carro uhul");
 	glutDisplayFunc(display);
 	glutReshapeFunc(Reshape);
 	glutKeyboardFunc(myKeyboard);
